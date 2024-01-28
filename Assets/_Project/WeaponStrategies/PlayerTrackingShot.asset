@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PlayerTrackingShot
   m_EditorClassIdentifier: 
   damage: 10
-  fireRate: 0.5
+  fireRate: 3
   projectileSpeed: 2.5
   projectileLifeTime: 5
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 8583639318034826825, guid: 219f705f44d1b6142a78da9a2651e599,
+    type: 3}
   trackingSpeed: 1
