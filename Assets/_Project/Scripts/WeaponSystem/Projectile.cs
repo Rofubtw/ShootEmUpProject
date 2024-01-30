@@ -47,6 +47,13 @@ namespace ShootEmUp
                 DestroyParticleSystem(hitVFX);
             }
             
+            // If hit a plane, damage it
+            if (collision.gameObject.TryGetComponent<Plane>(out Plane plane))
+            {
+                plane.TakeDamage(10);
+            }
+            
+            
             // Destroy projectile
             Destroy(gameObject);
         }

@@ -146,10 +146,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1273974557394656916}
+  - component: {fileID: 2401000468517889785}
+  - component: {fileID: -6605476559429170842}
   - component: {fileID: 3329489365514354949}
   - component: {fileID: 2754782607374752669}
   - component: {fileID: -8535824234690006894}
-  - component: {fileID: -6605476559429170842}
   m_Layer: 7
   m_Name: BfGreen
   m_TagString: Untagged
@@ -174,6 +175,35 @@ Transform:
   - {fileID: 5002503912413685931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2401000468517889785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858039849634522500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde901253f554d6d8fb5bb33d5452924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  scoreWorth: 10
+--- !u!114 &-6605476559429170842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858039849634522500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5b76558b11847f4bd20faa0f86a8ea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStrategy: {fileID: 11400000, guid: d18cbad62cb7a084781471f2e1afe73e, type: 2}
+  firePoint: {fileID: 5002503912413685931}
+  layer: 7
 --- !u!114 &3329489365514354949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,18 +275,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.36
   m_Center: {x: 0, y: 0.05, z: 0}
---- !u!114 &-6605476559429170842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6858039849634522500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b76558b11847f4bd20faa0f86a8ea1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponStrategy: {fileID: 11400000, guid: 8ca2b39f0826a79438c7b5a14d2c389b, type: 2}
-  firePoint: {fileID: 5002503912413685931}
-  layer: 7
