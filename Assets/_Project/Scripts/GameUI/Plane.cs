@@ -22,7 +22,14 @@ namespace ShootEmUp
             }
         }
 
-        
+        public void AddHealth(int amount)
+        {
+            health += amount;
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+        }
 
         protected abstract void Die();
     }

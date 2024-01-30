@@ -18,10 +18,19 @@ namespace ShootEmUp
         {
             fuel -= fuelConsumptionRate * Time.deltaTime;
         }
+        
+        public void AddFuel(int amount)
+        {
+            fuel += amount;
+            if (fuel > maxFuel)
+            {
+                fuel = maxFuel;
+            }
+        }
 
         protected override void Die()
         {
-            // TODO: IMPLEMENT
+            // TODO: Implement Vfx? Freeze Controls?
         }
         
     }
