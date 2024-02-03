@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace ShootEmUp
 {
@@ -6,9 +7,7 @@ namespace ShootEmUp
     {
         [SerializeField] int damage = 10;
         [SerializeField] float fireRate = 0.5f;
-        [SerializeField] protected float projectileSpeed = 10f;
-        [SerializeField] protected float projectileLifeTime = 4f;
-        [SerializeField] protected GameObject projectilePrefab;
+        [SerializeField] protected ProjectileSettings projectileSettings;
 
         public int Damage => damage;
         public float FireRate => fireRate;

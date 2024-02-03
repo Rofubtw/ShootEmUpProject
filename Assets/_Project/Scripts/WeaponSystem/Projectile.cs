@@ -1,80 +1,44 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using MEC;
-using PlasticGui.WorkspaceWindow.Home;
 using UnityEngine;
 
 namespace ShootEmUp
 {
     public class Projectile : Flyweight
     {
-        [SerializeField] float speed;
-        [SerializeField] GameObject muzzlePrefab;
-        [SerializeField] GameObject hitPrefab;
-        [SerializeField] GameObject destroyPrefab;
-
-        Transform parent;
-        bool isAlive;
-        public void SetSpeed(float speed) => this.speed = speed;
-        public void SetParent(Transform parent) => this.parent = parent;
-
+        new ProjectileSettings settings => (ProjectileSettings) base.settings;
         
         public Action Callback;
-        
-        void Start()
-        {
-            if (muzzlePrefab == null) return;
-            isAlive = true;
-            // Instantiate muzzle flash
-            var muzzleVFX = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
-            muzzleVFX.transform.forward = gameObject.transform.forward;
-            muzzleVFX.transform.SetParent(parent);
 
-            DestroyParticleSystem(muzzleVFX);
+        void OnEnable()
+        {
+            StartCoroutine(DespawnAfterDelay(settings.projectileLifeTime, this));
         }
 
         void Update()
         {
-            transform.position += transform.forward * (speed * Time.deltaTime);
+            transform.SetParent(null);
+            transform.position += transform.forward * (settings.projectileSpeed * Time.deltaTime);
             
             Callback?.Invoke();
         }
 
         void OnCollisionEnter(Collision collision)
         {
-            if (hitPrefab != null)
-            {
-                // Instantiate hit effect
-                ContactPoint contact = collision.contacts[0];
-                var hitVFX = Instantiate(hitPrefab, contact.point, Quaternion.identity);
-                isAlive = false;
-
-                DestroyParticleSystem(hitVFX);
-            }
+            // Instantiate hit effect
+             var hit = FlyweightFactory.Spawn(settings.hitSettings);
+             var contact = collision.contacts[0];
+             hit.gameObject.transform.position = contact.point;
+             isAlive = false;
             
             // If hit a plane, damage it
-            if (collision.gameObject.TryGetComponent<Plane>(out Plane plane))
+            if (collision.gameObject.TryGetComponent(out Plane plane))
             {
                 plane.TakeDamage(10);
             }
             
-            
-            // Destroy projectile
-            Destroy(gameObject);
-        }
-        
-        void DestroyParticleSystem(GameObject vfx)
-        {
-            var ps = vfx.GetComponent<ParticleSystem>();
-            if (ps == null)
-            {
-                ps = vfx.GetComponentInChildren<ParticleSystem>();
-            }
-            
-            transform.SetParent(null);
-            
-            Destroy(vfx, ps.main.duration);
+            FlyweightFactory.ReturnToPool(this);
         }
 
         public IEnumerator<float> DestroyEffectCoroutine(float time)
@@ -82,7 +46,8 @@ namespace ShootEmUp
             yield return Timing.WaitForSeconds(time);
             if (isAlive)
             {
-                Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+                //Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+                isAlive = false;
             }
         }
     }

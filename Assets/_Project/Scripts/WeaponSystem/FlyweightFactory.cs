@@ -7,7 +7,7 @@ namespace ShootEmUp
     public class FlyweightFactory : Singleton<FlyweightFactory>
     {
         [SerializeField] bool collectionCheck = true;
-        [SerializeField] int defaultCapacity = 10;
+        [SerializeField] int defaultCapacity = 20;
         [SerializeField] int maxPoolSize = 100;
         
         readonly Dictionary<FlyweightType, IObjectPool<Flyweight>> pools = new();
@@ -31,7 +31,8 @@ namespace ShootEmUp
                 maxPoolSize
             );
             pools.Add(settings.type, pool);
-            return pool;
+            return pools[settings.type];
         }
+        
     }
 }

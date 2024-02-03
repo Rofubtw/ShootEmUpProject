@@ -7,14 +7,19 @@ namespace ShootEmUp
     {
         public override void Fire(Transform firePoint, LayerMask layer)
         {
-            var projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-            projectile.transform.SetParent(firePoint);
-            projectile.layer = layer;
-
-            var projectileComponent = projectile.GetComponent<Projectile>();
-            projectileComponent.SetSpeed(projectileSpeed);
+            var projectile = FlyweightFactory.Spawn(projectileSettings);
+            var flashProjectile = FlyweightFactory.Spawn(projectileSettings.flashSettings);
             
-            Destroy(projectile, projectileLifeTime);
+            projectile.transform.position = firePoint.position;
+            flashProjectile.transform.position = firePoint.position;
+            
+            projectile.transform.rotation = firePoint.rotation;
+            flashProjectile.transform.rotation = firePoint.rotation;
+            
+            projectile.transform.SetParent(firePoint);
+            flashProjectile.transform.SetParent(firePoint);
+            
+            projectile.gameObject.layer = layer;
         }
     }
 }

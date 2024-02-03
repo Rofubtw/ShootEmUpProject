@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7850cc8d827457db720d858e14d6890, type: 3}
-  m_Name: YellowLaserSingleShot
+  m_Script: {fileID: 11500000, guid: 45d17ca91d7f487a839e470f3c1447ee, type: 3}
+  m_Name: BlueFlash
   m_EditorClassIdentifier: 
-  damage: 10
-  fireRate: 0.5
-  projectileSpeed: 10
-  projectileLifeTime: 4
-  projectilePrefab: {fileID: 8583639318034826825, guid: 5f3ef68ca39d36a4ea97672b3270357b,
-    type: 3}
+  type: 4
+  prefab: {fileID: 1556169196827650, guid: f7910ff95623f8d44b5ced4a1d843260, type: 3}
+  projectileLifeTime: 1
