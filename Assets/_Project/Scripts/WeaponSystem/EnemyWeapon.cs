@@ -14,7 +14,6 @@ namespace ShootEmUp
                 weaponStrategy.Fire(firePoint, layer);
                 fireTimer = 0f;
             }
-            
         }
     }
 }

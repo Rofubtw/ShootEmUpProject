@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b76558b11847f4bd20faa0f86a8ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponStrategy: {fileID: 11400000, guid: eeb1e88c2074bd34aa5c0261b5438c33, type: 2}
+  weaponStrategy: {fileID: 0}
   firePoint: {fileID: 5002503912413685931}
   layer: 7
 --- !u!114 &3329489365514354949

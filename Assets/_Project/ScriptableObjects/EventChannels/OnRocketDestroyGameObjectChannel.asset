@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed5670f108254054aca66c0c5a28918c, type: 3}
-  m_Name: BasicEnemy
+  m_Script: {fileID: 11500000, guid: 2fec8212c3784d80bf0f5c414a687cd7, type: 3}
+  m_Name: OnRocketDestroyGameObjectChannel
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 6858039849634522500, guid: 9de1b37440a15884daa0593521a0e725,
-    type: 3}
-  enemyWeapon: {fileID: 11400000, guid: 8ca2b39f0826a79438c7b5a14d2c389b, type: 2}
-  speed: 2

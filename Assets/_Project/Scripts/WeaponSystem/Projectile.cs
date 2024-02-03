@@ -1,25 +1,31 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using MEC;
+using PlasticGui.WorkspaceWindow.Home;
 using UnityEngine;
 
 namespace ShootEmUp
 {
-    public class Projectile : MonoBehaviour
+    public class Projectile : Flyweight
     {
         [SerializeField] float speed;
         [SerializeField] GameObject muzzlePrefab;
         [SerializeField] GameObject hitPrefab;
+        [SerializeField] GameObject destroyPrefab;
 
         Transform parent;
-
+        bool isAlive;
         public void SetSpeed(float speed) => this.speed = speed;
         public void SetParent(Transform parent) => this.parent = parent;
 
+        
         public Action Callback;
         
         void Start()
         {
             if (muzzlePrefab == null) return;
-            
+            isAlive = true;
             // Instantiate muzzle flash
             var muzzleVFX = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
             muzzleVFX.transform.forward = gameObject.transform.forward;
@@ -42,7 +48,7 @@ namespace ShootEmUp
                 // Instantiate hit effect
                 ContactPoint contact = collision.contacts[0];
                 var hitVFX = Instantiate(hitPrefab, contact.point, Quaternion.identity);
-
+                isAlive = false;
 
                 DestroyParticleSystem(hitVFX);
             }
@@ -69,6 +75,15 @@ namespace ShootEmUp
             transform.SetParent(null);
             
             Destroy(vfx, ps.main.duration);
+        }
+
+        public IEnumerator<float> DestroyEffectCoroutine(float time)
+        {
+            yield return Timing.WaitForSeconds(time);
+            if (isAlive)
+            {
+                Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+            }
         }
     }
 }

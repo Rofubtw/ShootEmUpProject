@@ -1,4 +1,6 @@
-﻿using RofoLib;
+﻿using EventSystem;
+using MEC;
+using RofoLib;
 using UnityEngine;
 
 namespace ShootEmUp
@@ -20,12 +22,13 @@ namespace ShootEmUp
             projectile.transform.SetParent(firePoint);
             projectile.layer = layer;
 
+            var firePointZVector = firePoint.position.z;
             var projectileComponent = projectile.GetComponent<Projectile>();
             projectileComponent.SetSpeed(projectileSpeed);
-            projectile.GetComponent<Projectile>().Callback = () =>
+            projectileComponent.Callback = () =>
             {
                 // get direction to target with same Z as firePoint
-                Vector3 direction = (target.position - projectile.transform.position).With(z: firePoint.position.z)
+                Vector3 direction = (target.position - projectile.transform.position).With(z: firePointZVector)
                     .normalized;
 
                 // rotate forward, with Z as the UP direction
@@ -33,7 +36,8 @@ namespace ShootEmUp
                 projectile.transform.rotation = Quaternion.Slerp(projectile.transform.rotation, rotation,
                     trackingSpeed * Time.deltaTime);
             };
-            
+
+            Timing.RunCoroutine(projectileComponent.DestroyEffectCoroutine(projectileLifeTime - 0.1f));
             Destroy(projectile, projectileLifeTime);
         }
     }
