@@ -67,13 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39abb4c2657f67f45ae4af713b942196, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  muzzlePrefab: {fileID: 3190674956657825750, guid: 57a16f222b001ae43bee8646deb6f08b,
-    type: 3}
-  hitPrefab: {fileID: 2433282508537954060, guid: 494abfb2113ceb84897d328787730043,
-    type: 3}
-  destroyPrefab: {fileID: 2433282508537954060, guid: d83dac2f9be0e9d499e700e6ff0e7ba3,
-    type: 3}
+  settings: {fileID: 11400000, guid: 85d97531fc9d72a4cbb00d0ab9e7d920, type: 2}
 --- !u!1001 &7207896520511946250
 PrefabInstance:
   m_ObjectHideFlags: 0

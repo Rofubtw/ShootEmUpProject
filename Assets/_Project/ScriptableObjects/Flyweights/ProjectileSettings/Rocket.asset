@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c702f8e7b38e49928eea5275340acbd4, type: 3}
-  m_Name: BlueBullet
+  m_Name: Rocket
   m_EditorClassIdentifier: 
-  type: 1
-  prefab: {fileID: 9099006051799825090, guid: 5d6b190d7c2e19c4b8aebc0c11c8246b, type: 3}
-  projectileSpeed: 10
-  projectileLifeTime: 1
+  type: 9
+  prefab: {fileID: 8583639318034826825, guid: 219f705f44d1b6142a78da9a2651e599, type: 3}
+  projectileSpeed: 3
+  projectileLifeTime: 4
   settings:
-  - {fileID: 11400000, guid: 7e917062901ab46479839dba58413a2c, type: 2}
-  - {fileID: 11400000, guid: 7ffe78ad155a7e547ace3613f22c86ca, type: 2}
+  - {fileID: 11400000, guid: f7c9e3fff9404024fa3327941f6b02c9, type: 2}
+  - {fileID: 11400000, guid: 3ac653c2405547b40b44b46597bf9ff5, type: 2}
+  - {fileID: 11400000, guid: 80ba15548ad2231459cf96b1f01eadb0, type: 2}

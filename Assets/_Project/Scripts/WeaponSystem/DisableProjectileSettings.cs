@@ -1,24 +1,19 @@
-﻿using System.Collections.Generic;
-using RofoLib;
+﻿using RofoLib;
 using UnityEngine;
 
 namespace ShootEmUp
 {
-    [CreateAssetMenu(menuName = "Flyweight/Projectile Settings")]
-    public class ProjectileSettings : FlyweightSettings
+    [CreateAssetMenu(menuName = "Flyweight/Disable Settings")]
+    public class DisableProjectileSettings : FlyweightSettings
     {
-        public float projectileSpeed = 10f;
         public float projectileLifeTime = 1f;
-
-        public List<FlyweightSettings> settings;
-        
         public override Flyweight Create()
         {
             var go = Instantiate(prefab);
             go.SetActive(false);
             go.name = prefab.name;
 
-            var flyweight = go.GetOrAdd<Projectile>();
+            var flyweight = go.GetOrAdd<DisableProjectile>();
             flyweight.settings = this;
 
             return flyweight;

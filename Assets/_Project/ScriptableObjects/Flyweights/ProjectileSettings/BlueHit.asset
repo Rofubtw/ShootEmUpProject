@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 7
   prefab: {fileID: 1795992203533318, guid: 423812f7f9c987c4f8d5e12a5bcd88ae, type: 3}
-  projectileLifeTime: 1
+  projectileLifeTime: 0.2

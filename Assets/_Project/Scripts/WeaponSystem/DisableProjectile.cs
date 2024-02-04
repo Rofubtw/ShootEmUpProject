@@ -1,11 +1,10 @@
 ﻿using System;
-using UnityEngine;
 
 namespace ShootEmUp
 {
-    public class HitProjectile : Flyweight
+    public class DisableProjectile : Flyweight
     {
-        new HitProjectileSettings settings => (HitProjectileSettings)base.settings;
+        new DisableProjectileSettings settings => (DisableProjectileSettings) base.settings;
         void OnEnable()
         {
             StartCoroutine(DespawnAfterDelay(settings.projectileLifeTime, this));

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7850cc8d827457db720d858e14d6890, type: 3}
-  m_Name: BlueBulletSingleShot
+  m_Script: {fileID: 11500000, guid: 0a654e2b5df840648f0e09b42cb22d37, type: 3}
+  m_Name: RocketDisable
   m_EditorClassIdentifier: 
-  damage: 10
-  fireRate: 0.5
-  projectileSettings: {fileID: 11400000, guid: ca05f5ea000e2844787f8d0355ebb495, type: 2}
+  type: 12
+  prefab: {fileID: 2433282508537954060, guid: d83dac2f9be0e9d499e700e6ff0e7ba3, type: 3}
+  projectileLifeTime: 1

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using MEC;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace ShootEmUp
 
         void OnEnable()
         {
+            isAlive = true;
             StartCoroutine(DespawnAfterDelay(settings.projectileLifeTime, this));
         }
 
@@ -26,8 +28,9 @@ namespace ShootEmUp
 
         void OnCollisionEnter(Collision collision)
         {
+            if (!isAlive) return;
             // Instantiate hit effect
-             var hit = FlyweightFactory.Spawn(settings.hitSettings);
+             var hit = FlyweightFactory.Spawn(settings.settings.ElementAt(1)); // Hit settings
              var contact = collision.contacts[0];
              hit.gameObject.transform.position = contact.point;
              isAlive = false;
@@ -41,12 +44,18 @@ namespace ShootEmUp
             FlyweightFactory.ReturnToPool(this);
         }
 
+        void OnDisable()
+        {
+            isAlive = false;
+        }
+
         public IEnumerator<float> DestroyEffectCoroutine(float time)
         {
             yield return Timing.WaitForSeconds(time);
             if (isAlive)
             {
-                //Instantiate(destroyPrefab, transform.position, Quaternion.identity);
+                var destroyEffect = FlyweightFactory.Spawn(settings.settings.ElementAt(2)); // Disable settings
+                destroyEffect.transform.position = transform.position;
                 isAlive = false;
             }
         }

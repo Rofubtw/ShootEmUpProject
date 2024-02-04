@@ -28,5 +28,8 @@ namespace ShootEmUp
         BlueHit,
         YellowHit,
         Rocket,
+        RocketFlash,
+        RocketHit,
+        RocketDisable,
     }
 }

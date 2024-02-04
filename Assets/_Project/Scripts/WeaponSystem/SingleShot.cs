@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace ShootEmUp
 {
@@ -8,7 +9,7 @@ namespace ShootEmUp
         public override void Fire(Transform firePoint, LayerMask layer)
         {
             var projectile = FlyweightFactory.Spawn(projectileSettings);
-            var flashProjectile = FlyweightFactory.Spawn(projectileSettings.flashSettings);
+            var flashProjectile = FlyweightFactory.Spawn(projectileSettings.settings.ElementAt(0)); // Flash settings
             
             projectile.transform.position = firePoint.position;
             flashProjectile.transform.position = firePoint.position;
