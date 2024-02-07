@@ -18,7 +18,7 @@ namespace ShootEmUp
         void Update()
         {
             // Iterate through each background layer
-            for (int i = 0; i < backgrounds.Length; i++)
+            for (var i = 0; i < backgrounds.Length; i++)
             {
                 var parallax = (previousCamPos.y - cam.position.y) * (i * multiplier);
                 var targetY = backgrounds[i].position.y + parallax;
@@ -27,7 +27,7 @@ namespace ShootEmUp
                 
                 backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, targetPosition, smoothing * Time.deltaTime);
             }
-
+            
             previousCamPos = cam.position;
         }
     }

@@ -1,10 +1,16 @@
 {
-    "name": "MenuSystem",
+    "name": "Flyweight",
     "rootNamespace": "",
     "references": [
         "GUID:4f93a292d0af44147aeb75289d422c13",
+        "GUID:6e5ef4d4271f1e64da3d70cd528a43bc",
+        "GUID:c2137718fd46db746b233b3df23bd425",
+        "GUID:21d1eb854b91ade49bc69a263d12bee2",
         "GUID:b93ad1d68d6da3b46ad58530545cd4a1",
-        "GUID:caca889fed6088d40b22c2d7e2909c31"
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:2383db0983cb65c469870c67c930d270",
+        "GUID:caca889fed6088d40b22c2d7e2909c31",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
