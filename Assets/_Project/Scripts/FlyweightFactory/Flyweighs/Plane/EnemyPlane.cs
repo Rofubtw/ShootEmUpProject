@@ -7,27 +7,18 @@ namespace ShootEmUp
 {
     public class EnemyPlane : Plane
     {
-        [SerializeField] int scoreWorth;
-        [SerializeField] GameObject explosionVFXPrefab;
         [SerializeField] IntEventChannel onEnemyDestroyInt;
         [SerializeField] Vector3EventChannel onEnemyDestroyVector3;
         
         new EnemySettings settings => (EnemySettings) base.settings;
-
-        void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.TryGetComponent(out Projectile projectile))
-            {
-                TakeDamage(10);
-            }
-        }
-
+        
         protected override void Die()
         {
             if (!IsAlive) return;
             
-            GameManager.Instance.AddScore(scoreWorth);
-            Instantiate(explosionVFXPrefab, transform.position, Quaternion.identity);
+            GameManager.Instance.AddScore(settings.score);
+            var explosionVFX = FlyweightFactory.Spawn(settings.explosionVFX);
+            explosionVFX.transform.position = transform.position;
             
             var destroyedEnemyNumber = 1;
             // reduces enemy number in enemy spawner

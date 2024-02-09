@@ -9,6 +9,7 @@ namespace ShootEmUp
     {
         public float projectileSpeed = 10f;
         public float projectileLifeTime = 1f;
+        public int damage = 10;
 
         public List<FlyweightSettings> settings;
         

@@ -1,23 +1,18 @@
-﻿using System.Collections.Generic;
-using RofoLib;
+﻿using RofoLib;
 using UnityEngine;
 using UnityEngine.Splines;
 
 namespace ShootEmUp
 {
-    [CreateAssetMenu(menuName = "Flyweight/Enemy Settings")]
-    public class EnemySettings : FlyweightSettings
+    [CreateAssetMenu(menuName = "Flyweight/Rocket Enemy Settings")]
+    public class RocketEnemySettings : EnemySettings
     {
-        public WeaponStrategy enemyWeapon;
-        public float speed;
-        
-        public List<SplineContainer> splines;
-        
         public override Flyweight Create()
         {
-            var go = Instantiate(prefab);
+            var pf = prefabs[Random.Range(0, prefabs.Length)];
+            var go = Instantiate(pf);
             go.SetActive(false);
-            go.name = prefab.name;
+            go.name = pf.name;
         
             var flyweight = go.GetOrAdd<EnemyPlane>();
             flyweight.settings = this;
@@ -36,10 +31,6 @@ namespace ShootEmUp
 
             flyweight.transform.position = spline.EvaluatePosition(0f);
             return flyweight;
-        }
-        public void SetSplineContainer(SplineContainer spline)
-        {
-            splines.Add(spline);
         }
     }
 }

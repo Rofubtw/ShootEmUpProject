@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6744936c66e6429b9d35f34d518ce651, type: 3}
-  m_Name: BasicEnemySettings
+  m_Name: BasicEnemySetting
   m_EditorClassIdentifier: 
   type: 17
-  prefab: {fileID: 6858039849634522500, guid: 9de1b37440a15884daa0593521a0e725, type: 3}
-  splines: []
+  prefab: {fileID: 0}
+  prefabs:
+  - {fileID: 6858039849634522500, guid: 9de1b37440a15884daa0593521a0e725, type: 3}
+  - {fileID: 6858039849634522500, guid: c13d39052b3979748b8c8629585a43e1, type: 3}
   enemyWeapon: {fileID: 11400000, guid: eeb1e88c2074bd34aa5c0261b5438c33, type: 2}
   speed: 2
+  score: 10
+  explosionVFX: {fileID: 11400000, guid: 12f05ab2e6e36d344975e2b2d5f77ff6, type: 2}
+  splines: []

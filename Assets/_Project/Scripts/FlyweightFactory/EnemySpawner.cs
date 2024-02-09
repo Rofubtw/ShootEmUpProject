@@ -46,7 +46,7 @@ namespace ShootEmUp
         }
 
         void SpawnEnemy()
-        {
+        {  
             var enemySetting = enemySettings[Random.Range(0, enemySettings.Count)];
             var enemy = FlyweightFactory.Spawn(enemySetting);
 

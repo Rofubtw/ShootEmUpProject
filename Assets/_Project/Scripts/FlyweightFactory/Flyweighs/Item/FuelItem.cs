@@ -9,6 +9,7 @@ namespace ShootEmUp
         void OnEnable()
         {
             StartCoroutine(DespawnAfterDelay(settings.itemLifeTime, this));
+            //StartCoroutine(FallingCoroutine(transform, settings.itemLifeTime));
         }
 
         void OnTriggerEnter(Collider other)
@@ -16,7 +17,7 @@ namespace ShootEmUp
             if (other.TryGetComponent(out Player player))
             {
                 player.AddFuel((int) settings.amount);
-                Destroy(gameObject);
+                FlyweightFactory.ReturnToPool(this);
             }
         }
     }

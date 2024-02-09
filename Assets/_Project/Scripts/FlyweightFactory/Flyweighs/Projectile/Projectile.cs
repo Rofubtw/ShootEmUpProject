@@ -36,10 +36,10 @@ namespace ShootEmUp
              IsAlive = false;
             
             // If hit a plane, damage it
-            // if (collision.gameObject.TryGetComponent(out Plane plane))
-            // {
-            //     plane.TakeDamage(10);
-            // }
+            if (collision.gameObject.TryGetComponent(out Plane plane))
+            {
+                plane.TakeDamage(settings.damage);
+            }
             
             FlyweightFactory.ReturnToPool(this);
         }

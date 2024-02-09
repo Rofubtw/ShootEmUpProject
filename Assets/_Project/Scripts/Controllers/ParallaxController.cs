@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace ShootEmUp
 {
@@ -13,7 +15,7 @@ namespace ShootEmUp
 
         void Awake() => cam = Camera.main.transform;
 
-        void Start() => previousCamPos = cam.position;
+        void OnEnable() => previousCamPos = cam.position;
 
         void Update()
         {

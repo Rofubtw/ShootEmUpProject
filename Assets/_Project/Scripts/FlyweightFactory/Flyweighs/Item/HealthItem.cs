@@ -8,6 +8,7 @@ namespace ShootEmUp
         void OnEnable()
         {
             StartCoroutine(DespawnAfterDelay(settings.itemLifeTime, this));
+            //StartCoroutine(FallingCoroutine(transform, settings.itemLifeTime));
         }
         void OnTriggerEnter(Collider other)
         {
